@@ -1,5 +1,5 @@
 #include "uart.h"
-
+#include "../../extern/mini-printf.h"
 
 
 
@@ -15,6 +15,15 @@ void KiUartPrint(const char *s) {
         KiUartPutChar(*s);
         s++;
     }
+}
+
+void KiUartPrintF(char *format, ...) {
+    char buffer[10293];
+    va_list args;
+    va_start(args, format); 
+    mini_vsnprintf(buffer, sizeof(buffer), format, args); 
+    va_end(args); 
+    KiUartPrint(buffer);
 }
 
 #define UART_FR_OFFSET 0x18

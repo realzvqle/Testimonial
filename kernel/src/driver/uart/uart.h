@@ -18,6 +18,7 @@ void KiUartPutChar(char c);
 void KiUartPrint(const char *s);
 char KiUartGetChar();
 char KiUartGetCharNonWait();
+void KiUartPrintF(char *format, ...);
 
 
 
