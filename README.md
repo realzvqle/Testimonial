@@ -23,4 +23,4 @@ make sure to also have [xmake](https://xmake.io/#/) and Make installed, for wind
 also if you want to run the kernel make sure to have qemu installed
 
 
-after that, run `make run` and wa
+after that, run `make run` and have fun
