@@ -10,8 +10,6 @@ void KiUartPutChar(char c) {
     KiWrite8(uart, c);
 }
 
-
-
 void KiUartPrint(const char *s) {
     while(*s != '\0') {
         KiUartPutChar(*s);
