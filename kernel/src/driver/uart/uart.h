@@ -1,0 +1,27 @@
+#ifndef UART_H_INCLUDED
+#define UART_H_INCLUDED
+
+
+
+
+
+
+
+
+
+#include "../mmio.h"
+
+
+
+
+void KiUartPutChar(char c);
+void KiUartPrint(const char *s);
+char KiUartGetChar();
+char KiUartGetCharNonWait();
+
+
+
+
+
+
+#endif
