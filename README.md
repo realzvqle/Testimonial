@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Building
 
-To build make sure yo have the aarch64-none-elf toolchain, if you need it download the Windows Build from [here](https://github.com/realzvqle/aarch64buildtools/releases/tag/aarch64)
+To build make sure you have the aarch64-none-elf toolchain, if you need it download the Windows Build from [here](https://github.com/realzvqle/aarch64buildtools/releases/tag/aarch64)
 
 make sure to also have [xmake](https://xmake.io/#/) and Make installed, for windows you can use the make.exe that comes with the [w64devkit](https://github.com/skeeto/w64devkit)
 
