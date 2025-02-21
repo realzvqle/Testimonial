@@ -27,5 +27,6 @@ void RtlSliceStrings(const char* sourcestring, char delimiter, char* firststring
 bool RtlStringCompare(char* first_string, char* second_string);
 version RtlGetCurrentVersion();
 int RtlAsciiToInteger(const char *str);
+void RtlUartPrintUnsigned64Integer(char* prev, uint64_t integer);
 
 #endif

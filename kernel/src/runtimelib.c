@@ -1,4 +1,5 @@
 #include "runtimelib.h"
+#include "driver/uart/uart.h"
 
 
 
@@ -172,3 +173,11 @@ int RtlAsciiToInteger(const char *str) {
 }
 
 
+
+void RtlUartPrintUnsigned64Integer(char* prev, uint64_t integer){
+    KiUartPrint(prev);
+    char buffer[512];
+    RtlIntegerToAscii(integer, buffer);
+    KiUartPrint(buffer);
+    KiUartPrint("\n");
+}
