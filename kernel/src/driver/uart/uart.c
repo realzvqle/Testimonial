@@ -1,5 +1,5 @@
 #include "uart.h"
-#include "../../extern/mini-printf.h"
+// #include "../../extern/mini-printf.h"
 #include "../../debug/debug.h"
 #include "../mmio.h"
 
