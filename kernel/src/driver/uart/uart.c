@@ -1,7 +1,7 @@
 #include "uart.h"
 #include "../../extern/mini-printf.h"
 #include "../../debug/debug.h"
-
+#include "../mmio.h"
 
 
 static volatile uint8_t *uart = (uint8_t *) 0x09000000;

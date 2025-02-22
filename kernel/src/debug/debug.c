@@ -1,5 +1,6 @@
 #include "debug.h"
 #include "../runtimelib.h"
+#include "../driver/uart/uart.h"
 
 
 extern void KiDumpRegisters();
@@ -31,4 +32,10 @@ void KiPrintRegisterData(InterruptFrame* frame){
     RtlUartPrintUnsigned64Integer("XZR: ", frame->xzr);
     RtlUartPrintUnsigned64Integer("ESR: ", frame->esr);
     RtlUartPrintUnsigned64Integer("FAR: ", frame->far);
+}
+
+
+void KiManualCallPrintDumpedRegisters(InterruptFrame* frame){
+    KiUartPrint("\n\n!!! MANUAL REGISTER DUMP !!!\n\n");
+    KiPrintRegisterData(frame);
 }

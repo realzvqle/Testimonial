@@ -181,3 +181,12 @@ void RtlUartPrintUnsigned64Integer(char* prev, uint64_t integer){
     KiUartPrint(buffer);
     KiUartPrint("\n");
 }
+
+
+size_t RtlGetStringLength(const char *str) {
+    if (*str == '\0') {
+        return 0;
+    } else {
+        return 1 + RtlGetStringLength(str + 1);
+    }
+}

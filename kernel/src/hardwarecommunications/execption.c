@@ -1,7 +1,7 @@
 #include <stdint.h>
-#include "driver/uart/uart.h"
-#include "runtimelib.h"
-#include "debug/debug.h"
+#include "../driver/uart/uart.h"
+#include "../runtimelib.h"
+#include "../debug/debug.h"
 
 
 void KiExceptionHandler(InterruptFrame* frame){

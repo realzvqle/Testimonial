@@ -1,14 +1,12 @@
-#include "debug/debug.h"
+#include "driver/ramfb/ramfb.h"
 #include "driver/uart/uart.h"
 
-void Hi(char* s, ...){
 
-}
 
 void KiEntry() {
-    // will immedietely create an exception for some reason    
-    //KiUartPrintF("Hi");
-    //KiDebugUartPrint("Hi");
-    //KiDumpRegisters();
-    Hi("s");
+    RamFbSetupFramebuffer();
+    RamFbChangeFramebufferSize(800,600);
+
+    COLOR color = RGB(255, 0, 0);
+    RamFbDrawRect(10, 10, 10, 10, &color);
 }
