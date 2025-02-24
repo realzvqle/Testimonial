@@ -1,6 +1,8 @@
 #include "../qemu/qemu.h"
 #include "../mmio.h"
 #include "ramfb.h"
+#include "../../time/timer.h"
+#include "../../time/rng/rng.h"
 
 #define fourcc_code(a, b, c, d) ((uint32_t)(a) | ((uint32_t)(b) << 8) | \
                                  ((uint32_t)(c) << 16) | ((uint32_t)(d) << 24))
@@ -70,17 +72,24 @@ void RamFbWriteRGB256Pixel(uint16_t x, uint16_t y, COLOR* color) {
 }
 
 
-COLOR RGB(uint8_t r, uint8_t g, uint8_t b){
-    COLOR color = {r, g, b};
-    return color;
-}
-
 void RamFbDrawRect(int x, int y, int height, int width, COLOR* color){
     for(int i = 0; i < height; i++){
         for(int j = 0; j < width; j++){
             RamFbWriteRGB256Pixel(x + j, y + i, color);
         }
     }
+    
+        
+}
+
+void RamFbDrawRectRandomized(int x, int y, int height, int width, COLOR* color){
+    RamFbWriteRGB256Pixel(KiGenerateRandomValueWithinRange(KiGetCounterValue(), x, x + width), 
+        KiGenerateRandomValueWithinRange(KiGetCounterValue(), y, y + height), color);
+}
+
+void RamFbSetBackgroundRandomized(COLOR* color){
+    RamFbWriteRGB256Pixel(KiGenerateRandomValueWithinRange(KiGetCounterValue(), 0, RamFbGetFrameBufferWidth()), 
+        KiGenerateRandomValueWithinRange(KiGetCounterValue(), 0, RamFbGetFrameBufferHeight()), color);
 }
 
 
@@ -103,3 +112,12 @@ void RamFbChangeFramebufferSize(uint16_t width, uint16_t height){
     fbheight = height;
     RamFbSetupFramebuffer();
 }
+
+uint16_t RamFbGetFrameBufferWidth(){
+    return fbwidth;
+}
+
+uint16_t RamFbGetFrameBufferHeight(){
+    return fbheight;
+}
+

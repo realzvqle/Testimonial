@@ -11,7 +11,7 @@
 
 
 #include <stdint.h>
-
+#include "../../graphicsabs/graphics.h"
 
 
 typedef struct _FRAMEBUFFER {
@@ -24,11 +24,7 @@ typedef struct _FRAMEBUFFER {
     uint32_t fb_size;
 } FRAMEBUFFER;
 
-typedef struct _COLOR {
-    uint8_t r;
-    uint8_t g;
-    uint8_t b;
-} COLOR;
+
 
 int RamFbSetupFramebuffer();
 void RamFbWriteRGB256Pixel(uint16_t x, uint16_t y, COLOR* color);
@@ -37,4 +33,10 @@ COLOR RGB(uint8_t r, uint8_t g, uint8_t b);
 void RamFbChangeFramebufferWidth(uint16_t width);
 void RamFbChangeFramebufferHeight(uint16_t height);
 void RamFbChangeFramebufferSize(uint16_t width, uint16_t height);
+uint16_t RamFbGetFrameBufferWidth();
+uint16_t RamFbGetFrameBufferHeight();
+void RamFbWriteRGB256Pixel(uint16_t x, uint16_t y, COLOR* color);
+void RamFbDrawRect(int x, int y, int height, int width, COLOR* color);
+void RamFbDrawRectRandomized(int x, int y, int height, int width, COLOR* color);
+void RamFbSetBackgroundRandomized(COLOR* color);
 #endif
