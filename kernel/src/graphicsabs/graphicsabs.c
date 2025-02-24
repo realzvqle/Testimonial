@@ -12,9 +12,19 @@
 */
 
 
+int KiSetupGraphicsDisplay(){
+    // In Here you put ALL your initialization code for your Graphics Driver
+    // For Example, for the RamFB driver I Run RamFbSetupFramebuffer to Begin
+    // Also, Make Sure it returns an integer for status testing
+
+    return RamFbSetupFramebuffer();
+}
+
+
 void KiDrawRect(int x, int y, int height, int width, COLOR *color){
     RamFbDrawRect(x, y, height, width, color);
 }
+
 
 void KiClearBackground(COLOR *color){
     RamFbClearBackground(color);
@@ -43,6 +53,21 @@ uint16_t KiGetFrameBufferWidth(){
 
 uint16_t KiGetFrameBufferHeight(){
     return RamFbGetFrameBufferHeight();
+}
+
+
+void KiChangeFrameBufferWidth(uint16_t width){
+    RamFbChangeFramebufferWidth(width);
+}
+
+
+void KiChangeFrameBufferHeight(uint16_t height){
+    RamFbChangeFramebufferHeight(height);
+}
+
+
+void KiChangeFrameBufferSize(uint16_t width, uint16_t height){
+    RamFbChangeFramebufferSize(width, height);
 }
 
 

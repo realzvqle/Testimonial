@@ -31,9 +31,8 @@ static uint8_t SimulateLoadingWait(){
 }
 
 void KiEntry() {
-    RamFbSetupFramebuffer();
-    RamFbChangeFramebufferSize(800,600);
-
+    KiSetupGraphicsDisplay();
+    KiChangeFrameBufferSize(800, 600);
     
     KiCreateTask(KiStartBootScreen);
     KiCreateTask(SimulateLoadingWait);
