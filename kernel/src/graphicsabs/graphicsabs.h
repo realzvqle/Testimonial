@@ -16,6 +16,7 @@
 
 
 void KiDrawRect(int x, int y, int height, int width, COLOR *color);
+void KiClearBackground(COLOR *color);
 void KiDrawRectRandomized(int x, int y, int height, int width, COLOR *color);
 void KiSetBackgroundRandomized(COLOR *color);
 void KiChangePixel(int x, int y, COLOR *color);

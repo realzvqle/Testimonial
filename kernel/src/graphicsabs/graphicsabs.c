@@ -16,6 +16,10 @@ void KiDrawRect(int x, int y, int height, int width, COLOR *color){
     RamFbDrawRect(x, y, height, width, color);
 }
 
+void KiClearBackground(COLOR *color){
+    RamFbClearBackground(color);
+}
+
 
 void KiDrawRectRandomized(int x, int y, int height, int width, COLOR *color){
     RamFbDrawRectRandomized(x, y, height, width, color);

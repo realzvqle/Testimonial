@@ -81,7 +81,13 @@ void RamFbDrawRect(int x, int y, int height, int width, COLOR* color){
     
         
 }
-
+void RamFbClearBackground(COLOR* color){
+    for(int i = 0; i < fbheight; i++){
+        for(int j = 0; j < fbwidth; j++){
+            RamFbWriteRGB256Pixel(j, i, color);
+        }
+    }
+}
 void RamFbDrawRectRandomized(int x, int y, int height, int width, COLOR* color){
     RamFbWriteRGB256Pixel(KiGenerateRandomValueWithinRange(KiGetCounterValue(), x, x + width), 
         KiGenerateRandomValueWithinRange(KiGetCounterValue(), y, y + height), color);
