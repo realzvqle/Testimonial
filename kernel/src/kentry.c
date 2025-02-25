@@ -37,6 +37,7 @@ void KiEntry() {
     if(result == 1){
         KiDumpRegisters();
         KiUartPrint("\n\n!! FAILURE TO SETUP GRAPHICS DRIVER !!\n\n");
+        while(1){continue;}
     }
     KiChangeFrameBufferSize(800, 600);
     COLOR color = RGB(255, 255, 255);
