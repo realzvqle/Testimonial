@@ -15,6 +15,6 @@
 
 
 void KiDrawText(int x, int y, char* s, int size, COLOR* color);
-
+void KiDrawTextRandomized(int x, int y, char* s, int size, COLOR* color);
 
 #endif

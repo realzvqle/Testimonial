@@ -1,4 +1,6 @@
+#include "debug/debug.h"
 #include "driver/ramfb/ramfb.h"
+#include "driver/uart/uart.h"
 #include "graphicsabs/graphicsabs.h"
 #include "mockscheduler/mockscheduler.h"
 #include "text/text.h"
@@ -31,11 +33,16 @@ static uint8_t SimulateLoadingWait(){
 }
 
 void KiEntry() {
-    KiSetupGraphicsDisplay();
+    int result = KiSetupGraphicsDisplay();
+    if(result == 1){
+        KiDumpRegisters();
+        KiUartPrint("\n\n!! FAILURE TO SETUP GRAPHICS DRIVER !!\n\n");
+    }
     KiChangeFrameBufferSize(800, 600);
-    
-    KiCreateTask(KiStartBootScreen);
-    KiCreateTask(SimulateLoadingWait);
+    COLOR color = RGB(255, 255, 255);
+    KiDrawTextRandomized(10, 10, "Hi", 1, &color);
+    // KiCreateTask(KiStartBootScreen);
+    // KiCreateTask(SimulateLoadingWait);
     KiBeginSchedular();
 }
 
