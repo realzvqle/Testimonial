@@ -40,10 +40,8 @@ void KiEntry() {
         while(1){continue;}
     }
     KiChangeFrameBufferSize(800, 600);
-    COLOR color = RGB(255, 255, 255);
-    KiDrawTextRandomized(10, 10, "Hi", 1, &color);
-    // KiCreateTask(KiStartBootScreen);
-    // KiCreateTask(SimulateLoadingWait);
+    KiCreateTask(KiStartBootScreen);
+    KiCreateTask(SimulateLoadingWait);
     KiBeginSchedular();
 }
 
