@@ -81,7 +81,7 @@ void RamFbDrawRect(int x, int y, int height, int width, COLOR* color){
     
         
 }
-void RamFbClearBackground(COLOR* color){
+void RamFbSetBackground(COLOR* color){
     for(int i = 0; i < fbheight; i++){
         for(int j = 0; j < fbwidth; j++){
             RamFbWriteRGB256Pixel(j, i, color);

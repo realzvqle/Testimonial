@@ -2,7 +2,7 @@
 #include "../graphicsabs/graphicsabs.h"
 #include "../time/rng/rng.h"
 #include "../time/timer.h"
-
+#include "../text/text.h"
 static bool isLoaded = false;
 
 
@@ -21,7 +21,7 @@ uint8_t KiStartBootScreen(){
     
     
     KiSetBackgroundRandomized(&background);
-    KiDrawRectRandomized(x, y, 30, 30, &rect);
+    KiDrawRectRandomized(x , y, 1, 1, &rect);
     x++;
     y++;
     if(x == KiGetFrameBufferWidth() - 1) x=0;
@@ -29,6 +29,8 @@ uint8_t KiStartBootScreen(){
     if(isLoaded == false) return 1;
     else return 0;
 }
+
+
 
 void KiEndBootScreen(){
     isLoaded = true;

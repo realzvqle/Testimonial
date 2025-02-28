@@ -8,13 +8,17 @@
 #include <stdbool.h>
 
 
+#define INFINITE -1
 
 typedef struct _TASK {
     uint8_t (*TaskEntryPoint) (void); 
+    int timelimit;
+    int currenttime;
+    bool isfreed;
 } TASK;
 
 
-uint16_t KiCreateTask(uint8_t (*TaskEntryPoint) (void));
+uint16_t KiCreateTask(uint8_t (*TaskEntryPoint) (void), int timelimit);
 void KiBeginSchedular();
 
 

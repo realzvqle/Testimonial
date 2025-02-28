@@ -36,6 +36,13 @@ uint64_t KiGetMilliseconds() {
     return (counter * 1000) / frequency;
 }
 
+// double KiGetMillisecondsDouble() {
+//     double counter = KiGetCounterValue();
+//     double frequency = KiGetCounterFrequency();
+    
+//     return (counter * 1000) / frequency;
+// }
+
 void KiSleep(uint32_t seconds) {
     uint32_t start_time = KiGetTimerValue();
     uint32_t target_time = start_time + seconds;
@@ -56,6 +63,8 @@ void KiSleepMi(uint32_t milliseconds) {
     }
 }
 
+
+
 void KiSleepMicro(uint32_t microseconds) {
     uint64_t start_time = KiGetCounterValue();
     uint64_t freq = KiGetCounterFrequency();  
@@ -75,3 +84,17 @@ uint32_t KiGetElapsedMicroseconds(uint64_t start_time) {
     uint32_t elapsed_microseconds = (elapsed_ticks * 1000000) / freq;
     return elapsed_microseconds;
 }
+
+
+// static double prevtime;
+// static double curtime;
+
+// uint8_t KiCalculateDeltaTime(){ 
+//     prevtime = curtime;
+//     curtime = KiGetMillisecondsDouble();
+//     return 1;
+// }
+
+// double KiGetDeltaTime(){
+//     return curtime - prevtime;
+// }

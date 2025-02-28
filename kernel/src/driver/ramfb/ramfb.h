@@ -39,5 +39,5 @@ void RamFbWriteRGB256Pixel(uint16_t x, uint16_t y, COLOR* color);
 void RamFbDrawRect(int x, int y, int height, int width, COLOR* color);
 void RamFbDrawRectRandomized(int x, int y, int height, int width, COLOR* color);
 void RamFbSetBackgroundRandomized(COLOR* color);
-void RamFbClearBackground(COLOR* color);
+void RamFbSetBackground(COLOR* color);
 #endif

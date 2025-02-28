@@ -1,7 +1,7 @@
 #include "graphicsabs.h"
 #include "../driver/ramfb/ramfb.h"
-
-
+#include "../mockscheduler/ticks.h"
+#include "../driver/uart/uart.h"
 /*
 
     If you want to add your own Graphics Driver make sure to replace the stock RamFb ones here
@@ -11,12 +11,15 @@
 
 */
 
+static COLOR backgroundc;
 
 int KiSetupGraphicsDisplay(){
     // In Here you put ALL your initialization code for your Graphics Driver
     // For Example, for the RamFB driver I Run RamFbSetupFramebuffer to Begin
+    // Also make sure to set up the background, unless you're using a different coloring system you can keep
+    // first line
     // Also, Make Sure it returns an integer for status testing
-
+    backgroundc = (COLOR){0,0,0};
     return RamFbSetupFramebuffer();
 }
 
@@ -26,8 +29,8 @@ void KiDrawRect(int x, int y, int height, int width, COLOR *color){
 }
 
 
-void KiClearBackground(COLOR *color){
-    RamFbClearBackground(color);
+void KiSetBackground(COLOR *color){
+    RamFbSetBackground(color);
 }
 
 
@@ -76,3 +79,18 @@ COLOR RGB(uint8_t r, uint8_t g, uint8_t b){
     return color;
 }
 
+uint8_t KiClearScreen(){
+    static uint64_t prevtick = 0;
+    static bool init = false;
+    if(init == false){
+        prevtick = KiGetCurrentTick();
+        init = true;
+    }
+    // This is a task which runs every tick
+    // if(KiGetCurrentTick() - prevtick >= ){
+    //     KiSetBackground(&backgroundc);
+    //     prevtick = KiGetCurrentTick();
+    //     //KiUartPrint("TICK\n");
+    // }
+    return 1;
+}
