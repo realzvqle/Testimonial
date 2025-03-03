@@ -18,7 +18,7 @@ typedef struct _TASK {
 } TASK;
 
 
-uint16_t KiCreateTask(uint8_t (*TaskEntryPoint) (void), int timelimit);
+uint16_t KiCreateTask(uint8_t (*TaskEntryPoint) (void), int amountofticks);
 void KiBeginSchedular();
 
 

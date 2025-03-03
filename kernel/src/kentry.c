@@ -7,22 +7,20 @@
 #include "text/text.h"
 #include "time/timer.h"
 #include "boot/boot.h"
-#include "runtimelib.h"
 
 
 
-uint16_t otherstuff = 0;
 
 static uint8_t SimulateLoadingWait(){
-    // Simulates a Loading Screen Wait, Around 20s (since i have nothing to load so far
+    // Simulates a Loading Screen Wait, Around 100 ticks (since i have nothing to load so far)
     static bool init = false;
     static int beginning;
     if(init == false){
-        beginning = KiGetMilliseconds();
+        beginning = KiGetCurrentTick();
         init = true;
     }
     COLOR background = RGB(0, 0, 0);
-    if(KiGetMilliseconds() - beginning >= 20000){
+    if(KiGetCurrentTick() - beginning >= 100){
         KiEndBootScreen();
         COLOR background = RGB(0, 0, 0);
         COLOR color = RGB(255, 255, 255);
@@ -36,34 +34,10 @@ static uint8_t SimulateLoadingWait(){
     
 }
 
-uint8_t StimulateTick(){
-    //KiUartPrint("hi!");
-    static int i = 0;
-    static int j = 0;
-    COLOR color = {10, 100, 200};
-    KiDrawRect(i, j, 10, 10, &color);
-    if(i < 100) i++;
-    else i = 0;
-    if(j < 100) j++;
-    else j = 0;
-    return 1;
-}
+
 
 uint8_t StimulateTick2(){
-    //KiUartPrint("poo!");
-    // static int i = 0;
-    // static int j = 0;
-    // COLOR color = {10, 200, 200};
-    // KiDrawRect(i, j, 90, 90, &color);
-    // if(i < 100) i++;
-    // else i = 0;
-    // if(j < 100) j++;
-    // else j = 0;
-    // return 1;
-    // char buffer[512];
-    // //RtlIntegerToAscii(KiGetTickDT(), buffer);
-    // KiUartPrint(buffer);
-    // KiUartPrint("\n");
+    KiUartPrint("Hi\n");
     return 1;
 }
 

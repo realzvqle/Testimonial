@@ -1,7 +1,6 @@
 #include "ticks.h"
 #include "../time/timer.h"
-#include "../runtimelib.h"
-#include "../driver/uart/uart.h"
+
 
 static uint64_t currenttick = 0;
 
@@ -10,7 +9,6 @@ static uint64_t currenttick = 0;
 uint64_t KiGetCurrentTick(){
     return currenttick;
 }
-
 
 
 void KiUpdateTicks(){
