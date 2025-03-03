@@ -82,15 +82,9 @@ void KiEntry() {
         while(1){continue;}
     }
     KiChangeFrameBufferSize(800, 600);
-    // KiCreateTask(KiStartBootScreen, INFINITE);
-    // KiCreateTask(SimulateLoadingWait, INFINITE);
-    KiCreateTask(KiCalculateTicksPerSecond, INFINITE);
-    KiCreateTask(KiUpdateTicks, INFINITE);
-    KiCreateTask(KiCalculateTickDT, INFINITE);
-    KiCreateTask(KiClearScreen, INFINITE);
-    KiCreateTask(StimulateTick, INFINITE);
-    KiCreateTask(StimulateTick2, INFINITE);
-    //KiCreateTask(LagMachine, INFINITE);
+    KiCreateTask(KiStartBootScreen, INFINITE);
+    KiCreateTask(SimulateLoadingWait, INFINITE);
+    
     KiBeginSchedular();
 }
 

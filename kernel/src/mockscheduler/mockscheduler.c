@@ -2,6 +2,7 @@
 #include "../time/timer.h"
 #include <stdint.h>
 #include "../driver/uart/uart.h"
+#include "ticks.h"
 /*
 
 
@@ -48,6 +49,7 @@ uint16_t KiCreateTask(uint8_t (*TaskEntryPoint) (void), int timelimit){
 
 void KiBeginSchedular(){
     while(1){
+        KiUpdateTicks();
         for(int i = 0; i < taskamount; i++){
             if(task[i].isfreed == true) continue;
             if(task[i].timelimit == -1) goto SKIPTIMECHECK;
