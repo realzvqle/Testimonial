@@ -1,5 +1,4 @@
 #include "mockscheduler.h"
-#include "../time/timer.h"
 #include <stdint.h>
 #include "../driver/uart/uart.h"
 #include "ticks.h"

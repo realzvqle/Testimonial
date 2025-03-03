@@ -11,6 +11,7 @@ uint64_t KiGetCurrentTick(){
 }
 
 
+
 void KiUpdateTicks(){
     static uint64_t prevtime = 0;
     static bool init = false;
@@ -23,3 +24,4 @@ void KiUpdateTicks(){
         prevtime = KiGetMilliseconds();
     }
 }
+

@@ -36,17 +36,6 @@ static uint8_t SimulateLoadingWait(){
 
 
 
-uint8_t StimulateTick2(){
-    KiUartPrint("Hi\n");
-    return 1;
-}
-
-
-uint8_t LagMachine(){
-    KiSleep(1);
-    return 1;
-}
-
 
 void KiEntry() {
     int result = KiSetupGraphicsDisplay();
